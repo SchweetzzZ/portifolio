@@ -517,33 +517,27 @@
                 <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Modelagem & APIs do Zero:</strong> Desenvolvimento do módulo desde a modelagem de
-                            dados até a construção das APIs e regras de negócio com PostgreSQL e ORM.</p>
+                        <p>Projetei a modelagem de dados e APIs REST do módulo no PostgreSQL (Drizzle ORM), estruturando uma máquina de estados (pre_event a closed), histórico auditável de fases e suporte a dados geoespaciais (PostGIS/GIST), garantindo rastreabilidade do ciclo de vida dos eventos municipais.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Isolamento Multi-Tenant:</strong> Implementação de isolamento de dados por
-                            organização, garantindo que usuários acessem estritamente os dados autorizados de suas
-                            respectivas unidades.</p>
+                        <p>Integrei o isolamento de dados multi-tenant e regras de RBAC nos endpoints do módulo, escopando requisições e consultas pelo contexto da organização autenticada (activeOrganizationId) para garantir o controle de acesso e sigilo entre secretarias.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Ciclo de Vida & Regras de Eventos:</strong> Criação de regras de negócio para o ciclo
-                            de vida dos eventos, cobrindo controle de prazos, permissões e fluxos de aprovação em
-                            etapas.</p>
+                        <p>Implementei travas temporais de edição (isPppPreEventEditLocked) e validações de domínio em Zod no backend, bloqueando alterações de materiais/serviços N dias antes do evento e eliminando 100% da dependência de validações no frontend.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Fluxos de Aprovação & Auditoria:</strong> Desenvolvimento de fluxos administrativos
-                            de aprovação e recusa com registro histórico de decisões e justificativas enviadas pelos
-                            usuários.</p>
+                        <p>Desenvolvi o fluxo automatizado de solicitação e aprovação de materiais com controle quantitativo (requested a returned), exigindo justificativas obrigatórias em recusas e garantindo auditoria completa sobre os suprimentos públicos alocados.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Integridade & Alta Performance SQL:</strong> Validações de integridade entre
-                            entidades
-                            e construção de endpoints com filtros, paginação e parâmetros tipados para redução de
-                            processamento e alta performance.</p>
+                        <p>Assegurei a consistência no banco PostgreSQL através de restrições de integridade complexas (SQL Check Constraints com lógica XOR para origens e provedores), impedindo inconsistências entre catálogos compartilhados e solicitações customizadas.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                        <p>Desenvolvi endpoints de consulta com paginação server-side, índices compostos e integração com Cloud Storage (S3/R2) com validação estrita de prefixos e MIME types, reduzindo o payload e garantindo upload seguro de ofícios e fotos de vistorias.</p>
                     </div>
                 </div>
             </div>
