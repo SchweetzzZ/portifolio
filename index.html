@@ -396,33 +396,27 @@
                 <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Modelagem & APIs do Zero:</strong> Desenvolvimento do módulo desde a modelagem de
-                            dados até a construção das APIs e regras de negócio com PostgreSQL e ORM.</p>
+                        <p>Projetei a modelagem de dados e APIs REST do módulo no PostgreSQL (Drizzle ORM), estruturando uma máquina de estados (pre_event a closed), histórico auditável de fases e suporte a dados geoespaciais (PostGIS/GIST), garantindo rastreabilidade do ciclo de vida dos eventos municipais.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Isolamento Multi-Tenant:</strong> Implementação de isolamento de dados por
-                            organização, garantindo que usuários acessem estritamente os dados autorizados de suas
-                            respectivas unidades.</p>
+                        <p>Integrei o isolamento de dados multi-tenant e regras de RBAC nos endpoints do módulo, escopando requisições e consultas pelo contexto da organização autenticada (activeOrganizationId) para garantir o controle de acesso e sigilo entre secretarias.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Ciclo de Vida & Regras de Eventos:</strong> Criação de regras de negócio para o ciclo
-                            de vida dos eventos, cobrindo controle de prazos, permissões e fluxos de aprovação em
-                            etapas.</p>
+                        <p>Implementei travas temporais de edição (isPppPreEventEditLocked) e validações de domínio em Zod no backend, bloqueando alterações de materiais/serviços N dias antes do evento e eliminando 100% da dependência de validações no frontend.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Fluxos de Aprovação & Auditoria:</strong> Desenvolvimento de fluxos administrativos
-                            de aprovação e recusa com registro histórico de decisões e justificativas enviadas pelos
-                            usuários.</p>
+                        <p>Desenvolvi o fluxo automatizado de solicitação e aprovação de materiais com controle quantitativo (requested a returned), exigindo justificativas obrigatórias em recusas e garantindo auditoria completa sobre os suprimentos públicos alocados.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Integridade & Alta Performance SQL:</strong> Validações de integridade entre
-                            entidades
-                            e construção de endpoints com filtros, paginação e parâmetros tipados para redução de
-                            processamento e alta performance.</p>
+                        <p>Assegurei a consistência no banco PostgreSQL através de restrições de integridade complexas (SQL Check Constraints com lógica XOR para origens e provedores), impedindo inconsistências entre catálogos compartilhados e solicitações customizadas.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                        <p>Desenvolvi endpoints de consulta com paginação server-side, índices compostos e integração com Cloud Storage (S3/R2) com validação estrita de prefixos e MIME types, reduzindo o payload e garantindo upload seguro de ofícios e fotos de vistorias.</p>
                     </div>
                 </div>
             </div>
@@ -493,47 +487,31 @@
                 <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Deploy Automatizado & CI/CD:</strong> Construção de fluxo de deploy automatizado
-                            utilizando Docker, Dokploy e pipeline CI/CD completa, realizando entregas contínuas via
-                            integração com Git e atualização automática dos serviços no ambiente VPS de homologação.</p>
+                        <p>Construção de fluxo de deploy automatizado utilizando Docker, Dokploy e pipeline CI/CD completa, realizando entregas contínuas via integração com Git e atualização automática dos serviços no ambiente VPS de homologação.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Sistema de Onboarding com Transações Atômicas:</strong> Desenvolvimento do módulo de
-                            cadastro e aprovação administrativa de vendedores, utilizando transações com Drizzle ORM
-                            para garantir atomicidade entre validação de documentos, alteração de permissões (RBAC) e
-                            criação da loja.</p>
+                        <p>Desenvolvimento do módulo de cadastro e aprovação administrativa de vendedores, utilizando transações com Drizzle ORM para garantir atomicidade entre validação de documentos, alteração de permissões (RBAC) e criação da loja.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Estratégia de Cache com Redis:</strong> Implementação de padrão Cache-Aside com Redis
-                            para dados de alta frequência de leitura, com invalidação explícita pós-escrita garantindo
-                            consistência estrita entre cache e PostgreSQL.</p>
+                        <p>Implementação de padrão Cache-Aside com Redis para dados de alta frequência de leitura, com invalidação explícita pós-escrita garantindo consistência estrita entre cache e PostgreSQL.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Queries Avançadas & Performance SQL:</strong> Construção de consultas complexas no
-                            Drizzle ORM (double self-join com alias, busca em lote de imagens com <code>inArray</code>
-                            para eliminação do problema N+1 e paginação server-side fortemente tipada).</p>
+                        <p>Construção de consultas complexas no Drizzle ORM (double self-join com alias, busca em lote de imagens com <code>inArray</code> para eliminação do problema N+1 e paginação server-side fortemente tipada).</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Controle de Acesso (RBAC Declarativo):</strong> Implementação de controle de acesso
-                            via Elysia Macro, encapsulando a validação de sessão em decorators reutilizáveis que injetam
-                            o contexto do usuário ou retornam erro 401 automaticamente.</p>
+                        <p>Implementação de controle de acesso via Elysia Macro, encapsulando a validação de sessão em decorators reutilizáveis que injetam o contexto do usuário ou retornam erro 401 automaticamente.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Autenticação com Better-Auth & Resend:</strong> Integração de Better-Auth com plugin
-                            administrativo e fluxo de recuperação de senha via Resend, utilizando importação dinâmica
-                            para isolamento completo de dependências na inicialização da aplicação.</p>
+                        <p>Integração de Better-Auth com plugin administrativo e fluxo de recuperação de senha via Resend, utilizando importação dinâmica para isolamento completo de dependências na inicialização da aplicação.</p>
                     </div>
                     <div class="flex items-start gap-3">
                         <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p><strong>Upload Otimizado em Nuvem (Presigned URLs):</strong> Arquitetura de upload de mídia
-                            utilizando Presigned URLs diretas na AWS S3 / Cloudflare R2, eliminando o processamento de
-                            arquivos pesados pelo servidor backend e reduzindo significativamente a latência e os custos
-                            de egress.</p>
+                        <p>Arquitetura de upload de mídia utilizando Presigned URLs diretas na AWS S3 / Cloudflare R2, eliminando o processamento de arquivos pesados pelo servidor backend e reduzindo significativamente a latência e os custos de egress.</p>
                     </div>
                 </div>
 
@@ -547,87 +525,6 @@
                     </a>
                 </div>
             </div>
-<<<<<<< HEAD
-
-            <!-- Job Card: PPP -->
-            <div class="bg-surface-container rounded-xl p-8 border border-outline-variant lift-glow mt-8">
-                <div
-                    class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6 gap-4 border-b border-outline-variant pb-6">
-                    <div>
-                        <div class="flex flex-wrap items-center gap-3 mb-2">
-                            <h3 class="text-2xl font-bold text-on-background">PREFEITURA DE JUAZEIRO-BA</h3>
-                            <span
-                                class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-full">
-                                Estágio FullStack
-                            </span>
-                        </div>
-                        <p class="text-lg font-semibold text-primary mb-1">
-                            PPP <span class="text-xs font-normal text-on-surface-variant font-code-block">(Projeto
-                                Prefeitura
-                                Presente — Módulo de Gestão de Eventos Municipais)</span>
-                        </p>
-                        <p class="text-sm text-on-surface-variant leading-relaxed mt-2 max-w-2xl">
-                            Sistema com controle de secretarias participantes, catálogo de serviços e materiais e fluxo
-                            de aprovação administrativa.
-                        </p>
-                    </div>
-                    <div class="text-left lg:text-right">
-                        <span
-                            class="font-code-block text-sm text-secondary bg-surface-container-high px-3 py-1.5 rounded-lg border border-outline-variant inline-block">
-                            14/09/2025 — Atual
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Technologies Badges -->
-                <div class="mb-8">
-                    <p class="text-xs font-code-block text-on-surface-variant uppercase tracking-wider mb-3">Stack
-                        Utilizada:</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-code-block">
-                        <span
-                            class="px-2.5 py-1 bg-surface-container-high border border-outline-variant rounded text-primary">PostgreSQL</span>
-                        <span
-                            class="px-2.5 py-1 bg-surface-container-high border border-outline-variant rounded text-primary">TypeScript</span>
-                        <span
-                            class="px-2.5 py-1 bg-surface-container-high border border-outline-variant rounded text-primary">Elysia.js</span>
-                        <span
-                            class="px-2.5 py-1 bg-surface-container-high border border-outline-variant rounded text-primary">Drizzle
-                            ORM</span>
-                        <span
-                            class="px-2.5 py-1 bg-surface-container-high border border-outline-variant rounded text-primary">Multi-Tenant</span>
-                    </div>
-                </div>
-
-                <!-- Accomplishments List -->
-                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Projetei a modelagem de dados e APIs REST do módulo no PostgreSQL (Drizzle ORM), estruturando uma máquina de estados (pre_event a closed), histórico auditável de fases e suporte a dados geoespaciais (PostGIS/GIST), garantindo rastreabilidade do ciclo de vida dos eventos municipais.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Integrei o isolamento de dados multi-tenant e regras de RBAC nos endpoints do módulo, escopando requisições e consultas pelo contexto da organização autenticada (activeOrganizationId) para garantir o controle de acesso e sigilo entre secretarias.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Implementei travas temporais de edição (isPppPreEventEditLocked) e validações de domínio em Zod no backend, bloqueando alterações de materiais/serviços N dias antes do evento e eliminando 100% da dependência de validações no frontend.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Desenvolvi o fluxo automatizado de solicitação e aprovação de materiais com controle quantitativo (requested a returned), exigindo justificativas obrigatórias em recusas e garantindo auditoria completa sobre os suprimentos públicos alocados.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Assegurei a consistência no banco PostgreSQL através de restrições de integridade complexas (SQL Check Constraints com lógica XOR para origens e provedores), impedindo inconsistências entre catálogos compartilhados e solicitações customizadas.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                        <p>Desenvolvi endpoints de consulta com paginação server-side, índices compostos e integração com Cloud Storage (S3/R2) com validação estrita de prefixos e MIME types, reduzindo o payload e garantindo upload seguro de ofícios e fotos de vistorias.</p>
-                    </div>
-                </div>
-            </div>
-=======
->>>>>>> 34e81bdaa292fef028bfa6de91b1d75edf2c5d15
         </div>
     </section>
 
